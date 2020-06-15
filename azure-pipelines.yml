@@ -19,7 +19,7 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'clean, package'
+    goals: 'package'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: 
@@ -42,7 +42,7 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-X'
-    goals: 'clean, package'
+    goals: 'package'
     options: 'tomcat7:run'
     publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
