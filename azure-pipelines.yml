@@ -30,3 +30,4 @@ steps:
     SourceFolder: '/home/vsts/work/1/s/target/'
     Contents: 'petclinic.war'
     TargetFolder: '/home/vsts/work/1/a'
+    
