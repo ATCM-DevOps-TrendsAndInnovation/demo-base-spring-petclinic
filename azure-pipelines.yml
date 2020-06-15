@@ -25,3 +25,8 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'wmt_artifact'
     publishLocation: 'Container'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '/home/vsts/work/1/s/target/'
+    Contents: 'petclinic.war'
+    TargetFolder: '/home/vsts/work/1/a'
