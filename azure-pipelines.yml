@@ -19,7 +19,7 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package build'
+    goals: 'package'
 
 - task: PublishBuildArtifacts@1
   inputs:
@@ -31,14 +31,6 @@ steps:
     SourceFolder: '/home/vsts/work/1/s/target/'
     Contents: 'petclinic.war'
     TargetFolder: '/home/vsts/work/1/a'
-- task: CmdLine@2
-  inputs:
-    script: |
-      echo Write your commands here
-      
-      echo Hello world
-      docker run -e MYSQL_ROOT_PASSWORD=petclinic -e MYSQL_DATABASE=petclinic -p 3306:3306 mysql:5.7.8
-    workingDirectory: '$(Build.ArtifactStagingDirectory)'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -52,3 +44,11 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo Write your commands here
+      
+      echo Hello world
+      docker run -e MYSQL_ROOT_PASSWORD=petclinic -e MYSQL_DATABASE=petclinic -p 3306:3306 mysql:5.7.8
+    workingDirectory: '$(Build.ArtifactStagingDirectory)'
